@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Table_Add</title>
+  <link href="../Content/bootstrap.css" rel="stylesheet" />
+  
+  <script src="../Scripts/jquery-1.11.0.min.js"></script>
+  <script src="../Scripts/bootstrap.min.js"></script>
+  <style>
+	body{
+		background: url(backg.jpg);
+	}
+	
+	
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2 style="color:white">Patient Data</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <table id="productTable" style="padding-right: 40px" 
+               class="table table-bordered table-condensed table-striped">
+          <thead>
+            <tr style="color:white">
+				<th>Sympotms</th>
+				<th>Disease</th>
+				<th>Date</th>
+				<th>Weight</th>
+				<th>Hospital</th>
+				<th>Doctor</th>
+				
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading" >
+            patient Information
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="symptoms">
+                Sympotms
+              </label>
+              <textarea
+                     class="form-control"
+                     placeholder="Sympotms"
+                     id="symptoms">
+			  </textarea>
+            </div>
+			<div class="form-group">
+              <label for="disease">
+                Disease
+              </label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Disease"
+                     id="disease" 
+					 />
+            </div>
+            <div class="form-group">
+              <label for="introdate">
+                Date
+              </label>
+              <input type="date"
+                     class="form-control"
+                     
+                     id="introdate" />
+            </div>
+			<div class="form-group">
+              <label for="weight">
+                Weight
+              </label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Weight"
+                     id="weight" />
+            </div>
+			<div class="form-group">
+              <label for="hospital">
+                Hospital
+              </label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Hospital"
+                     id="hospital" />
+            </div>
+			<div class="form-group">
+              <label for="doctor">
+                Doctor
+              </label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Doctor"
+                     id="doctor" />
+            </div>
+            
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-12">
+                <button type="button" id="updateButton"
+                        class="btn btn-primary"
+                        onclick="productUpdate();">
+						Add
+                </button>
+				
+				<button type="button"
+                        class="btn btn-primary"
+                        onClick="parent.location='prescription.html'">
+						Prescription
+                </button>
+              </div>
+            </div>
+          </div>
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function productUpdate() {
+      if ($("#symptoms").val() != null &&
+          $("#symptoms").val() != '') {
+        // Add product to Table
+        productAddToTable();
+
+        // Clear form fields
+        formClear();
+
+        // Focus to product name field
+        $("#symptoms").focus();
+      }
+    }
+
+    // Add product to <table>
+    function productAddToTable() {
+      // First check if a <tbody> tag exists, add one if not
+      if ($("#productTable tbody").length == 0) {
+        $("#productTable").append("<tbody></tbody>");
+      }
+
+      // Append product to the table
+      $("#productTable tbody").append(
+          "<tr>" +
+            "<td>" + $("#symptoms").val() + "</td>" +
+			"<td>" + $("#disease").val() + "</td>" +
+            "<td>" + $("#introdate").val() + "</td>" +
+			"<td>" + $("#weight").val() + "</td>" +
+            "<td>" + $("#hospital").val() + "</td>" +
+			"<td>" + $("#doctor").val() + "</td>" +
+			
+          "</tr>"
+          );
+		  
+    }
+
+    // Clear form fields
+    function formClear() {
+      $("#symptoms").val("");
+	  $("#disease").val("");
+      $("#introdate").val("");
+	  $("#weight").val("");
+	  $("#hospital").val("");
+	  $("#doctor").val("");
+	  
+    }
+  </script>
+</body>
+</html>
