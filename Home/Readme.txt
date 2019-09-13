@@ -1,6 +1,5 @@
-Thanks for downloading this theme!
+Thanks for downloading this Web Mini-App!
 
-Theme Name: Selecao
-Theme URL: https://bootstrapmade.com/selecao-bootstrap-template/
-Author: BootstrapMade.com
-Author URL: https://bootstrapmade.com
+Name: Hi_care
+Presentation URL: https://github.com/Madzeedy/Hi_care.git
+Author: Madzeedy
